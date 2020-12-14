@@ -20,14 +20,14 @@ app.post('/webhook', linebotParser)
 
 bot.on('message', function (event) {
     if(event.message.text == "Pesan" || event.message.text == "pesan") {
-        let message = `Hai, kamu dapat memesan melalui aplikasi berikut\n https://liff.line.me/1655320023-ZmWOJDBP\nTerima kasih :)`
+        let message = `Hai, kamu dapat memesan melalui aplikasi berikut\n\nhttps://liff.line.me/1655320023-ZmWOJDBP\n\nTerima kasih :)`
         event.reply(message).then(function (data) {
             console.log('Success', data)
         }).catch(function (error) {
             console.log('Error', error)
         })
     }
-    else if(event.message.text.indexOf("Anda telah memesan makanan")) {
+    else if(event.message.text.indexOf("Anda telah memesan makanan") !== -1) {
         let message = `Hai, pesanan telah kami terima harap menunggu yaa, akan segera kami antar secepatnya\nkamu dapat memesan menu tambahan lagi melalui aplikasi berikut\n https://liff.line.me/1655320023-ZmWOJDBP\nTerima kasih :)`
         event.reply(message).then(function (data) {
             console.log('Success', data)
@@ -36,7 +36,7 @@ bot.on('message', function (event) {
         })
     }
     else {
-        let message = `Hai, selamat datang di Warung Makan - SGPC :)\nAda yang bisa kami bantu?\n silahkan ketik "pesan" atau "Pesan" untuk mendapatkan link pemesanan makanan.\nTerima kasih :)`
+        let message = `Hai, selamat datang di Warung Makan - SGPC :)\nAda yang bisa kami bantu?\n\nSilahkan ketik "pesan" atau "Pesan" untuk mendapatkan link pemesanan makanan.\nTerima kasih :)`
         event.reply(message).then(function (data) {
             console.log('Success', data)
         }).catch(function (error) {
