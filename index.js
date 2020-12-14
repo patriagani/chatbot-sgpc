@@ -28,7 +28,7 @@ bot.on('message', function (event) {
         })
     }
     else if(event.message.text.indexOf("Anda telah memesan makanan") !== -1) {
-        let message = `Hai, pesanan telah kami terima harap menunggu yaa, akan segera kami antar secepatnya\nkamu dapat memesan menu tambahan lagi melalui aplikasi berikut\n https://liff.line.me/1655320023-ZmWOJDBP\nTerima kasih :)`
+        let message = `Hai, pesanan telah kami terima harap menunggu yaa, akan segera kami antar secepatnya\n\nKamu dapat memesan menu tambahan lagi melalui aplikasi berikut\n\nhttps://liff.line.me/1655320023-ZmWOJDBP\n\nTerima kasih :)`
         event.reply(message).then(function (data) {
             console.log('Success', data)
         }).catch(function (error) {
