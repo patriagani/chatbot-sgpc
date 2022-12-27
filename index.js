@@ -1,20 +1,24 @@
 const linebot = require('linebot');
 const express = require('express');
+require('dotenv').config()
 
 const bot = linebot({
-  channelId: "1655374650",
-  channelSecret: "1e31253d07c70dc59ac60bc26a6852de",
-  channelAccessToken: "o/4RsANb1yTD8uirke9trCbgZB1v3UZ2yTNf0q9pgdnQqv7Fr39Chv7UiYJoe7GjDcXUVP7QDW3dqsS1RAQvfonXVCtVUBnnHSBZ4yALtxS6J9Pj36byklkSXJyVURc0kvJeUfriU5Eamp0QJdbgHQdB04t89/1O/w1cDnyilFU="
+  channelId: process.env.CHANNEL_ID,
+  channelSecret: process.env.CHANNEL_SECRET,
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 });
+
+console.log(bot)
 
 const app = express()
 
 const linebotParser = bot.parser()
 
-// app.get('/', (req, res) => {
-//     res.send('Hai ini linebot Warung Makan - SGPC');
-//     res.send(200);
-// });
+app.get('/', (req, res) => {
+    res.status(200).json({
+        message: "Hai ini linebot Warung Makan - SGPC"
+    });
+});
 
 app.post('/webhook', linebotParser)
 
